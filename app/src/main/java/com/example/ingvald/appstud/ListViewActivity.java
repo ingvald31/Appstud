@@ -21,6 +21,7 @@ public class ListViewActivity extends AppCompatActivity {
 private RecyclerView rv;
     private PlaceAdapter placeAdapter;
     private ArrayList<Result> listResult;
+    private Double lng,lat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,9 @@ private RecyclerView rv;
 
         rv.setLayoutManager(new LinearLayoutManager(this) );
         rv.setItemAnimator(new DefaultItemAnimator());
+
+        this.lng = (double) getIntent().getExtras().get("long");
+        this.lat = (double) getIntent().getExtras().get("lat");
 
         MonAt monAt = new MonAt();
         monAt.execute();
@@ -77,7 +81,7 @@ private RecyclerView rv;
             ArrayList<Result> temp = null;
 
             try {
-                temp = WebServicesUtils.getPlace(43.6,1.4333);
+                temp = WebServicesUtils.getPlace(lat+","+lng);
             } catch (Exception e) {
                 exception=e;
 

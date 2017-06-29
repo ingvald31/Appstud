@@ -23,6 +23,8 @@
         android:layout_alignParentStart="false"
         android:layout_alignParentTop="false"
         android:text="TextView"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 
 </RelativeLayout>

@@ -17,9 +17,9 @@ public class WebServicesUtils {
     private static final String URL = " https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
     private static final String URL_FIN = "&radius=2000&type=restaurant&key=AIzaSyBm4vkbIXLXNR4iwaheDWJuoc5l2UvuFOs";
 
-    public static ArrayList<Result> getPlace(Double latitude, Double longitude) throws Exception {
+    public static ArrayList<Result> getPlace(String position) throws Exception {
 
-        String reponseInJson = OkHttpUtils.sendGetOkHttpRequest(URL + latitude + "," + longitude + URL_FIN);
+        String reponseInJson = OkHttpUtils.sendGetOkHttpRequest(URL + position + URL_FIN);
 
         Gson gson = new Gson();
 
